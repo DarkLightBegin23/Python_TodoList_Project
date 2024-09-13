@@ -1,8 +1,15 @@
-todo_list = ["공부하기"]
+class Savefile():
+    def __init__(self, file_todo_list):
+        self.file_todo_list = file_todo_list
 
-with open("todo_list.txt",'w') as file:
-    for task_1 in todo_list:
-        file.write(task_1 +"\n")
+    def filesave():
+        todo_list = []
+        todo_list_add = input()
+        todo_list.append(todo_list_add)
+        
+        with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'w') as file:
+            for task_1 in todo_list:
+                file.write(task_1 + '\n')
+            with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'r') as file:
+                todo_list = [task.strip() for task in file.readlines()]
 
-with open("todo_list.txt",'r') as file:
-    todo_list = file.readlines()
