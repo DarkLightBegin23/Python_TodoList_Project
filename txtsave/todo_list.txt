@@ -1,2 +1,1 @@
-°øºÎ
-¿îµ¿
+& C:/Users/SAMSUNG/AppData/Local/Programs/Python/Python312/python.exe c:/Users/SAMSUNG/Desktop/ììŠµ/Python/Todo_List_Project/tkinter_todo/todolist_window_1.py

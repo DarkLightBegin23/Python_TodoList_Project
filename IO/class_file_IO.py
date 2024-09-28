@@ -4,25 +4,18 @@ class Todo_list:
 
     todo_list = []
 
-    def __init__(self, description, done=False):
+    def __init__(self, description="Default description"):  # 기본 값을 설정
         self.description = description
-        self.done = done
 
     def mark_done(self):
         self.done = True
     
-    def add_todo(self):
-        while True:
-            new_task = input("할 일을 입력해주세요!(끝 입력시 종료): ")
-            if new_task == '끝':
-                break
-            Todo_list.todo_list.append(new_task)
-            with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'w') as file:
-                for task_1 in Todo_list.todo_list:
-                    file.write(task_1 + '\n')
-            with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'r') as file:
-                Todo_list.todo_list = [task.strip() for task in file.readlines()]
-
+    def add_todo(self, tasks):
+        with open('todo_list.txt', 'w') as file:
+            for task in tasks:
+                file.write(task + '\n') 
+        with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'r') as file:
+            Todo_list.todo_list = [task.strip() for task in file.readlines()]        
         print("최신 할 일 목록 :", Todo_list.todo_list)
         
     def taskremove(self):

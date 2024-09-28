@@ -12,4 +12,3 @@ class Savefile():
                 file.write(task_1 + '\n')
             with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'r') as file:
                 todo_list = [task.strip() for task in file.readlines()]
-
