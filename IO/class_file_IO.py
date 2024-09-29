@@ -11,10 +11,12 @@ class Todo_list:
         self.done = True
     
     def add_todo(self, tasks):
-        with open('todo_list.txt', 'w') as file:
+        file_path = 'C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt'
+
+        with open(file_path, 'w') as file:
             for task in tasks:
                 file.write(task + '\n') 
-        with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'r') as file:
+        with open(file_path,'r') as file:
             Todo_list.todo_list = [task.strip() for task in file.readlines()]        
         print("최신 할 일 목록 :", Todo_list.todo_list)
         

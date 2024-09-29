@@ -20,7 +20,6 @@ def list_in_Todo():
     if inputs:  # 입력된 값이 있을 때만 실행
         listbox.insert(tkinter.END, inputs)  # Listbox의 마지막에 입력값을 추가
         ent.delete(0, tkinter.END)  # 입력 필드를 초기화
-        print(f'입력된 값: {inputs}')
     else:
         print("입력 값이 없습니다.")
 
