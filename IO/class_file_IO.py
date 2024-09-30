@@ -14,8 +14,8 @@ class Todo_list:
         file_path = 'C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt'
 
         with open(file_path, 'w') as file:
-            for task in tasks:
-                file.write(task + '\n') 
+            for task in tasks:  # 항목 받을 때 문자열의 경우 리스트로 받기
+                file.write(task + '\n')
         with open(file_path,'r') as file:
             Todo_list.todo_list = [task.strip() for task in file.readlines()]        
         print("최신 할 일 목록 :", Todo_list.todo_list)
