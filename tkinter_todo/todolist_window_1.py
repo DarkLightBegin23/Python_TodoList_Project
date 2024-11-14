@@ -23,14 +23,32 @@ def list_in_Todo():
     else:
         print("입력 값이 없습니다.")
 
+def flash():
+    checkbutton1.flash()
+
 def finish():
     tasks = listbox.get(0, tkinter.END)  # Listbox의 모든 항목을 가져옴
     Todofile = Todo_list()  # Todo_list 클래스의 인스턴스 생성
     Todofile.add_todo(tasks)  # add_todo 메서드에 할 일 목록 전달
     tkinter.messagebox.showinfo("저장 완료", "할 일 목록이 파일에 저장되었습니다.")
 
+def Delete():
+    tasks = listbox.get(0, tkinter.END)
+    DeleteValue = Todo_list()
+    DeleteValue.delete(tasks)
+
+
+scrollBar = tkinter.Scrollbar(todolist_window)
+
 listbox = tkinter.Listbox(todolist_window, selectmode='extended', height=0)
+listbox.config(yscrollcommand=scrollBar.set)
+
+DeleteButton = tkinter.Button(todolist_window, text="삭제", width=5, command=lambda: Delete)
+DeleteButton.pack()
+
 listbox.pack(pady=10)
+
+scrollBar.config(command=listbox.yview)
 
 ent = tkinter.Entry(todolist_window, width=30)
 ent.pack(pady=40)
@@ -40,5 +58,13 @@ button.pack(pady=10)  # 위아래로 패딩 10을 추가하여 배치
 
 button = tkinter.Button(todolist_window, text="끝", width=15, command=finish)
 button.pack(pady=10)
+
+checkVariety_1 = tkinter.IntVar()
+
+checkbutton1 = tkinter.Checkbutton(todolist_window, text="Temp", variable=checkVariety_1)
+
+checkbutton1.pack()
+
+scrollBar.pack(side="right", fill="y")
 
 todolist_window.mainloop()

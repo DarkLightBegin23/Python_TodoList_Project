@@ -1,5 +1,7 @@
 import tkinter
+import tkinter.filedialog
 import tkinter.messagebox
+from PIL import ImageTk 
 
 window=tkinter.Tk()  # 상위 레벨 윈도우 창 생성
 
