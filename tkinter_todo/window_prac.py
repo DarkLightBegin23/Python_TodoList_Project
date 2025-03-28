@@ -15,12 +15,19 @@ def get_entry_value():
     user_input = ent.get()
     print(f'입력된 값: {user_input}')
 
-
+def flash():
+    checkbutton1.flash()
 ent = tkinter.Entry(window, width=30)
 ent.pack()
 
 button = tkinter.Button(window, text="입력값 확인", width=15, command=get_entry_value)
 button.pack(pady=10)  # 위아래로 패딩 10을 추가하여 배치
+
+checkVariety_1 = tkinter.IntVar()
+
+checkbutton1 = tkinter.Checkbutton(window, text="Temp", variable=checkVariety_1)
+
+checkbutton1.pack()
 
 count=0
 

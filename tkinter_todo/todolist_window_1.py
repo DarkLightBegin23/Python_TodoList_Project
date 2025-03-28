@@ -5,10 +5,10 @@ from IO.class_file_IO import Todo_list
 todolist_window = tkinter.Tk()
 
 todolist_window.title("Todo List")  # 제목
-todolist_window.geometry("640x480+100+100")  # 창 크기 좌표
+todolist_window.geometry("640x400+100+100")  # 창 크기 좌표
 todolist_window.resizable(True, True)  # 창 크기 조절 여부(상하, 좌우)
 
-title=tkinter.Label(todolist_window, text="Todo List 항목을 작성해주세요", width=25, height=5, fg="black", relief="ridge",bg="cyan")  # tltie 위젯 설정
+title=tkinter.Label(todolist_window, text="Todo List 항목을 작성해주세요", width=25, height=5, fg="black", relief="ridge",bg="skyblue")  # tltie 위젯 설정
 title.pack()
 
 def input_Todo():
@@ -23,8 +23,7 @@ def list_in_Todo():
     else:
         print("입력 값이 없습니다.")
 
-def flash():
-    checkbutton1.flash()
+
 
 def finish():
     tasks = listbox.get(0, tkinter.END)  # Listbox의 모든 항목을 가져옴
@@ -43,10 +42,10 @@ scrollBar = tkinter.Scrollbar(todolist_window)
 listbox = tkinter.Listbox(todolist_window, selectmode='extended', height=0)
 listbox.config(yscrollcommand=scrollBar.set)
 
-DeleteButton = tkinter.Button(todolist_window, text="삭제", width=5, command=lambda: Delete)
-DeleteButton.pack()
-
 listbox.pack(pady=10)
+
+DeleteButton = tkinter.Button(todolist_window, text="항목 선택 후 삭제", width=20, command=lambda: Delete)
+DeleteButton.pack()
 
 scrollBar.config(command=listbox.yview)
 
@@ -58,12 +57,6 @@ button.pack(pady=10)  # 위아래로 패딩 10을 추가하여 배치
 
 button = tkinter.Button(todolist_window, text="끝", width=15, command=finish)
 button.pack(pady=10)
-
-checkVariety_1 = tkinter.IntVar()
-
-checkbutton1 = tkinter.Checkbutton(todolist_window, text="Temp", variable=checkVariety_1)
-
-checkbutton1.pack()
 
 scrollBar.pack(side="right", fill="y")
 
