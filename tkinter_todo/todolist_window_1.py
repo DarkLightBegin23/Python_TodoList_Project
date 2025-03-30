@@ -23,28 +23,29 @@ def list_in_Todo():
     else:
         print("입력 값이 없습니다.")
 
-
-
 def finish():
     tasks = listbox.get(0, tkinter.END)  # Listbox의 모든 항목을 가져옴
     Todofile = Todo_list()  # Todo_list 클래스의 인스턴스 생성
     Todofile.add_todo(tasks)  # add_todo 메서드에 할 일 목록 전달
     tkinter.messagebox.showinfo("저장 완료", "할 일 목록이 파일에 저장되었습니다.")
 
-def Delete():
-    tasks = listbox.get(0, tkinter.END)
-    DeleteValue = Todo_list()
-    DeleteValue.delete(tasks)
+
+# 삭제 메서드 재구현 필요!!!
+
+def delete_selected():
+    selected_items = listbox.curselection()  # 선택된 항목의 인덱스 가져오기
+    for index in reversed(selected_items):  # 뒤에서부터 삭제 (앞에서 삭제하면 인덱스가 밀림)
+        listbox.delete(index)
 
 
 scrollBar = tkinter.Scrollbar(todolist_window)
 
-listbox = tkinter.Listbox(todolist_window, selectmode='extended', height=0)
+listbox = tkinter.Listbox(todolist_window, selectmode='single', height=0)
 listbox.config(yscrollcommand=scrollBar.set)
 
 listbox.pack(pady=10)
 
-DeleteButton = tkinter.Button(todolist_window, text="항목 선택 후 삭제", width=20, command=lambda: Delete)
+DeleteButton = tkinter.Button(todolist_window, text="항목 선택 후 삭제", width=20, command=lambda: delete_selected)
 DeleteButton.pack()
 
 scrollBar.config(command=listbox.yview)

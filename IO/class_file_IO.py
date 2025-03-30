@@ -1,8 +1,10 @@
 import os
 
+# print(os.getcwd())
+
 class Todo_list:
     todo_list = []  # 클래스 변수로 할 일 목록 관리
-    file_path = 'C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt'
+    file_path = 'Python_TodoList_Project/txtsave/todo_list.txt'
 
     def __init__(self, description="Default description"):
         self.description = description
