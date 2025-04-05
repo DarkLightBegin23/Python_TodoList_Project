@@ -30,7 +30,7 @@ def finish():
     tkinter.messagebox.showinfo("저장 완료", "할 일 목록이 파일에 저장되었습니다.")
 
 
-# 삭제 메서드 재구현 필요!!!
+# 삭제 메서드 투두리스트 파일 액션과 연결 필요
 
 def delete_selected():
     selected_items = listbox.curselection()  # 선택된 항목의 인덱스 가져오기
@@ -45,7 +45,7 @@ listbox.config(yscrollcommand=scrollBar.set)
 
 listbox.pack(pady=10)
 
-DeleteButton = tkinter.Button(todolist_window, text="항목 선택 후 삭제", width=20, command=lambda: delete_selected)
+DeleteButton = tkinter.Button(todolist_window, text="항목 선택 후 삭제", width=20, command=lambda: delete_selected())
 DeleteButton.pack()
 
 scrollBar.config(command=listbox.yview)
