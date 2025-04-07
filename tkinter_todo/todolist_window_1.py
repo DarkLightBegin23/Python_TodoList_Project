@@ -26,16 +26,20 @@ def list_in_Todo():
 def finish():
     tasks = listbox.get(0, tkinter.END)  # Listbox의 모든 항목을 가져옴
     Todofile = Todo_list()  # Todo_list 클래스의 인스턴스 생성
-    Todofile.add_todo(tasks)  # add_todo 메서드에 할 일 목록 전달
+    Todofile.todo_list.add_todo(tasks)  # add_todo 메서드에 할 일 목록 전달
     tkinter.messagebox.showinfo("저장 완료", "할 일 목록이 파일에 저장되었습니다.")
 
 
 # 삭제 메서드 투두리스트 파일 액션과 연결 필요
 
 def delete_selected():
+    tasks = listbox.get(0, tkinter.END)
     selected_items = listbox.curselection()  # 선택된 항목의 인덱스 가져오기
-    for index in reversed(selected_items):  # 뒤에서부터 삭제 (앞에서 삭제하면 인덱스가 밀림)
-        listbox.delete(index)
+    for index in selected_items[::-1]:  # 역순으로 삭제
+        task = tasks.listbox.get(index)
+        tasks.listbox.delete(index)
+        tasks.todo_list.todo_list.remove(task)  # 메모리 목록에서도 삭제
+
 
 
 scrollBar = tkinter.Scrollbar(todolist_window)
@@ -45,7 +49,8 @@ listbox.config(yscrollcommand=scrollBar.set)
 
 listbox.pack(pady=10)
 
-DeleteButton = tkinter.Button(todolist_window, text="항목 선택 후 삭제", width=20, command=lambda: delete_selected())
+DeleteButton = tkinter.Button(todolist_window, text="항목 선택 후 삭제", width=20, command=lambda: delete_selected()) 
+# 참조만이 아닌 호출도 할 수 있도록 처리 (command=sss -> command=sss())
 DeleteButton.pack()
 
 scrollBar.config(command=listbox.yview)

@@ -11,7 +11,7 @@ class TodoApp:
 
         self.todo_list = Todo_list()
         
-        title = tk.Label(root, text="Todo List 항목을 작성해주세요", width=25, height=5, fg="black", relief="ridge", bg="cyan")
+        title = tk.Label(root, text="Todo List 항목을 작성해주세요", width=25, height=5, fg="black", relief="ridge", bg="ivory")
         title.pack()
 
         self.listbox = tk.Listbox(root, selectmode='extended', height=0)
