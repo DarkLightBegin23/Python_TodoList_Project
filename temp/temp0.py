@@ -1,4 +1,4 @@
-from IO.class_file_IO import Todo_list
+from IO.todo_func import Todo_list
 
 task1 = Todo_list()
 

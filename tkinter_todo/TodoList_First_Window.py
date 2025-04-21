@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.messagebox
 import tkinter.simpledialog
-from IO.class_file_IO import Todo_list
+from IO.todo_func import Todo_list
 
 class TodoApp:
     def __init__(self, root):
@@ -26,9 +26,12 @@ class TodoApp:
         delete_button.pack(pady=10)
 
         # 완료 버튼
-        finish_button = tk.Button(root, text="저장 및 종료", width=15, command=self.finish)
+        finish_button = tk.Button(root, text="저장", width=15, command=self.finish)
         finish_button.pack(pady=10)
 
+        quit_button = tk.Button(root, text="종료", width=15, command=self.quit)
+        quit_button.pack(pady=10)
+        
         # 할 일 목록 초기화
         self.refresh_listbox()
 
@@ -64,7 +67,6 @@ class TodoApp:
         tasks = self.listbox.get(0, tk.END)
         self.todo_list.add_todo(tasks)
         tk.messagebox.showinfo("저장 완료", "할 일 목록이 파일에 저장되었습니다.")
-        self.root.quit()
 
     def refresh_listbox(self):
         """
@@ -74,6 +76,10 @@ class TodoApp:
         self.listbox.delete(0, tk.END)  # 기존 항목 초기화
         for task in self.todo_list.todo_list:
             self.listbox.insert(tk.END, task)
+            
+    def quit(self):
+        self.root.quit()
+
 
 # tkinter 윈도우 생성 및 실행
 root = tk.Tk()

@@ -7,8 +7,8 @@ class Savefile():
         todo_list_add = input()
         todo_list.append(todo_list_add)
         
-        with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'w') as file:
+        with open("Python_TodoList_Project/txtsave/todo_list.txt",'w') as file:
             for task_1 in todo_list:
                 file.write(task_1 + '\n')
-            with open("C:/Users/SAMSUNG/Desktop/자습/Python/Todo_List_Project/txtsave/todo_list.txt",'r') as file:
+            with open("Python_TodoList_Project/txtsave/todo_list.txt",'r') as file:
                 todo_list = [task.strip() for task in file.readlines()]

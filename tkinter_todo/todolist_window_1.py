@@ -1,6 +1,6 @@
 import tkinter
 import tkinter.messagebox
-from IO.class_file_IO import Todo_list
+from IO.todo_func import Todo_list
 
 todolist_window = tkinter.Tk()
 
