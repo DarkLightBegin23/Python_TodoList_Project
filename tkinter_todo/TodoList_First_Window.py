@@ -29,7 +29,7 @@ class TodoApp:
         finish_button = tk.Button(root, text="저장", width=15, command=self.finish)
         finish_button.pack(pady=10)
 
-        quit_button = tk.Button(root, text="종료", width=15, command=self.quit)
+        quit_button = tk.Button(root, text="종료", width=15, command=self.retryButton)
         quit_button.pack(pady=10)
         
         # 할 일 목록 초기화
@@ -79,7 +79,13 @@ class TodoApp:
             
     def quit(self):
         self.root.quit()
-
+        
+    def retryButton(self):
+        reButton = tk.messagebox.askokcancel("종료", "종료하시겠습니까?")
+        if reButton == True:
+            self.root.quit()
+        else:
+            tk.messagebox.showinfo("종료 취소", "취소되었습니다.")
 
 # tkinter 윈도우 생성 및 실행
 root = tk.Tk()
