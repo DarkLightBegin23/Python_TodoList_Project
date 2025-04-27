@@ -62,7 +62,7 @@ class TodoApp:
 
     def finish(self):
         """
-        현재 할 일 목록을 파일에 저장하고 프로그램을 종료합니다.
+        현재 할 일 목록을 파일에 저장합니다.
         """
         tasks = self.listbox.get(0, tk.END)
         self.todo_list.add_todo(tasks)
